@@ -123,3 +123,241 @@ body{
 .info-btn:hover{
     background-color: rgba(109, 109, 109, 0.4);
 }
+
+/* Movie row */
+.container{
+    max-width: 100%;
+    padding: 0 4%;
+}
+
+/* section style */
+
+.content{
+    margin-bottom: 50px;
+}
+
+.content-title{
+    margin: 20px 0;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* content row  */
+
+.content-row{
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.content-row::-webkit-scrollbar{
+    height: 8px;
+}
+
+.content-row::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+.content-row::-webkit-scrollbar-thumb{
+    background: #333;
+    border-radius: 5px;
+}
+
+/* card */
+
+.content-card{
+    position:relative;
+    height: 160px;
+    min-width: 250px;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.content-card:hover{
+    transform: scale(1.1);
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.card-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(1);
+    transition: filter 0.3s ease;
+}
+
+.content-card:hover .card-img{
+    filter: brightness(0.5);
+}
+
+.netflix-badge{
+    position: relative;
+    top: 0;
+    left: 8px;
+    background-color: #e50914;
+    color: white;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 2;
+    border-radius: 3px;
+}
+
+/* card overlay */
+.card-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(100deg,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.3) 50%,rgba(0,0,0,0.9) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+    color: white;
+}
+
+.content-card:hover .card-overlay{
+    opacity: 1;
+}
+
+.overlay-top{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.overlay-bottom{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.card-title{
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 20px;
+}
+
+.overlay-control{
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.control-btn{
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 14px;
+}
+
+.control-btn:hover{
+    background:rgba(255,255,255,0.3);
+    transform: scale(1.1);
+}
+
+
+.overlay-info{
+    display: flex;
+    gap:10px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.info-badge{
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* button icons */
+.play-btn::before{
+    content:"▶";
+}
+
+.check-btn::before{
+    content:"✓";
+}
+
+.thumb-btn::before{
+    content:"👍";
+}
+
+.more-btn::before{
+    content:"➕";
+}
+
+.content-card::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background:linear-gradient(to bottom,transparent 0%,transparent 50%,rgba(0,0,0,0.8) 100%) ;
+    z-index: 1;
+}
+
+/* resposive card */
+
+@media (max-width:120px) {
+
+    .container{
+        padding: 0 3%;
+    }
+
+    .content-card{
+        min-width: 220px;
+        height: 125px;
+    }
+
+    .content-title{
+        font-size: 1.6rem;
+    }
+    
+}
+
+@media(max-width:760px){
+    .container{
+        padding: 0 2%;
+    }
+    .content-card{
+        min-width: 100px;
+        height: 100px;
+    }
+
+    .content-title{
+        font-size: 1rem;
+    }
+}
